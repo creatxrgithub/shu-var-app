@@ -1,0 +1,7 @@
+{
+  "name": "shu-var-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
