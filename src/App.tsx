@@ -1,3 +1,5 @@
+import { MyContext, MyProvider } from "./my-context";  //注意此處路徑和 Tab1.tsx 中不同
+
 import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
@@ -37,7 +39,7 @@ import './theme/variables.css';
 setupIonicReact();
 
 const App: React.FC = () => (
-  <IonApp>
+  <IonApp><MyProvider>
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
@@ -57,20 +59,20 @@ const App: React.FC = () => (
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
             <IonIcon icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+            <IonLabel>日期</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
             <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+            <IonLabel>六爻</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
             <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+            <IonLabel>卦象</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
     </IonReactRouter>
-  </IonApp>
+  </MyProvider></IonApp>
 );
 
 export default App;
