@@ -234,6 +234,14 @@ console.log(someobj['varStringKey' as keyof typeof someobj]);
 console.log(someobj['varStringKey' as keyof someobjType]);
 ```
 
+### TS2551: Property 'select' does not exist on type 'HTMLElement'. Did you mean 'onselect'?
+TODO: scroll to specify line, e.g. current date.
+https://www.w3schools.com/jsref/prop_element_scrolltop.asp
+```
+const eleArea = document.getElementById('solarLunarArea') as HTMLInputElement;
+```
+getElementById can return any HTMLElements. In your case you know its an input element so you can tell TypeScript that by using a type assertion.
+
 ### To accept all kind of key-value paired variables in Context
 useState<**{[key: string]:any}**>({})
 ```
@@ -290,6 +298,7 @@ use to display pre-formatted string:
 const str = 'abc\ndef\ng';
 <pre>{str}</pre>
 ```
+but it has a problem that the content within tag \<pre\> cannot be selected and copied on the device.
 
 ### Top level async/await
 ```
@@ -321,6 +330,7 @@ await new Promise(fulfilled => yourObj.on("event", fulfilled));
 
 ### binding value {varX}
 a better pratice is use "const doFn = async()" function to "setStateValue(varX)". it's because the binding {varX} doesn't accept a promised value return with {doAsyncFunctionReturnValue}
+must call setVarX() to set the binding value, the input field doesn't auto change the binding value {varX}.
 
 ### how to define a key-value pair type
 ```

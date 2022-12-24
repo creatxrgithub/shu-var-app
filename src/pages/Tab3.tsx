@@ -216,14 +216,14 @@ const Tab3: React.FC = () => {
         </IonItem>
         <IonItem style={{'overflowX': 'scroll'}}>{/*todo: horizontal scroll*/}
           <IonButton onClick={ e => doPrediction() }>起卦問卜</IonButton>
-          <IonButton onClick={ e => { setResults(''); setReason(''); } }>清空卦象</IonButton>
+          <IonButton onClick={ e => { setResults(''); setReason(''); } }>淸空卦象</IonButton>
           <IonButton onClick={ e => savePrediction() }>保存結論</IonButton>
           <IonButton id="history" expand="block">歷史記錄</IonButton>
           <IonButton id="reader" expand="block">易數傳眞</IonButton>
         </IonItem>
         <IonItem>
           <IonLabel color="primary">推定應期：</IonLabel>
-          <IonInput value={forecast} placeholder='推定結論及其應期' />
+          <IonInput value={forecast} onIonInput={ e => setForecast(e.target?.value?.toString() ?? '') } placeholder='推定結論及其應期' />
         </IonItem>
         <IonItem>
           {/** 加 <pre></pre> 以根據 \r\n 分行 */}
@@ -246,7 +246,7 @@ const Tab3: React.FC = () => {
               {
               <IonAccordionGroup ref={refAccordionGroup} data-source={predictionHistory}>{
                 //must set item's "key" prop
-                Object.keys(predictionHistory).map((key,index) => (
+                Object.keys(predictionHistory).reverse().map((key,index) => (
                   //設 id 以便使用 document.getElementById
                   <IonAccordion id={key} key={key} value={key}>
                     <IonItem slot="header" color="light">
@@ -260,7 +260,8 @@ const Tab3: React.FC = () => {
                         }
                       required placeholder='結論' />
                       </IonItem>
-                      <pre>{predictionHistory[key]?.results}</pre>
+                      <IonTextarea readonly={true} rows={16} value={predictionHistory[key]?.results}>
+                      </IonTextarea>
                     </div>
                   </IonAccordion>
                 ))}
