@@ -224,6 +224,18 @@ let res: HttpResponse = await CapacitorHttp.get(options);  //not work on android
 <IonItem style={{'overflowX': 'scroll'}}>
 ```
 
+### reuse saved ionic initial project
+"ionic serve" with "Error: Cannot find module '../scripts/start'"
+run
+```
+rm -R node_modules
+```
+to remove directory "node_modules" then
+```
+npm install
+```
+it doesn't work with "npm update" without remove the directory
+
 ## Remark knowedges
 
 ### TS7053: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '() => any'.

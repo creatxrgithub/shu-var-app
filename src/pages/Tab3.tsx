@@ -1,5 +1,4 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonList, IonItem, IonButton, IonInput, IonTextarea, IonModal, IonAccordionGroup, IonAccordion, IonAlert } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
 import './Tab3.css';
 import React, { useState, useRef, useEffect, useContext } from 'react';
 
@@ -204,7 +203,6 @@ const Tab3: React.FC = () => {
         <IonTitle size="large">Tab 3</IonTitle>
       </IonToolbar>
       </IonHeader>
-      <ExploreContainer name="Tab 3 page" />
       <IonList>
         {/*<IonItem><IonLabel>當前時間：{moment().toString()}</IonLabel></IonItem>*/}
         <IonItem><IonLabel>起卦時間：{predictTime!}</IonLabel></IonItem>
@@ -250,7 +248,7 @@ const Tab3: React.FC = () => {
                   //設 id 以便使用 document.getElementById
                   <IonAccordion id={key} key={key} value={key}>
                     <IonItem slot="header" color="light">
-                      <IonLabel>{key}　{predictionHistory[key]?.reason}</IonLabel>
+                      <IonLabel>{predictionHistory[key]?.reason}　{key}</IonLabel>
                     </IonItem>
                     <div className="ion-padding" slot="content">
                     <IonItem>

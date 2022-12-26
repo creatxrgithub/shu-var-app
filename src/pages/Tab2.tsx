@@ -1,7 +1,5 @@
 import React, { useState, useContext } from 'react';
 import { IonHeader, IonTitle, IonToolbar, IonContent, IonItem, IonLabel, IonList, IonListHeader, IonSelect, IonSelectOption, IonPage, IonButton, IonAlert, NavContext } from '@ionic/react';
-
-import ExploreContainer from '../components/ExploreContainer';
 import './Tab2.css';
 
 import { MyContext } from "../my-context";
@@ -152,7 +150,7 @@ const Tab2: React.FC = () => {
 
         <IonButton routerLink="/tab1">上一步</IonButton>
         <IonButton onClick = { e => setShuBitsVars() }>指定六爻，下一步</IonButton>
-        <IonButton onClick={ e => clearShuBitsVars() }>清空六爻</IonButton>
+        <IonButton onClick={ e => clearShuBitsVars() }>淸空六爻</IonButton>
 
         <IonAlert
           isOpen={showAlert}
