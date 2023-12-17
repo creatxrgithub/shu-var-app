@@ -174,6 +174,14 @@ useEffect(() => {
     if (date.isValid()) fetchData(moment(date).format('YYYY')).catch(console.error);
   }, [myCtx.curTime]);
 ```
+maybe it could implement as:
+```
+useEffect(() => {
+  (async() => {
+    await callAsyncFunction();
+  })();
+}, [myCtx.curTime]);
+```
 
 ## Use iso8601 formated datetime string only:
 moment().format() or new Date().toISOString(true)
@@ -370,5 +378,6 @@ https://hooks.reactivers.com/use-global-state
 https://sebhastian.com/react-global-variable/ //it seems that it does not works
 //and it seems that dotenv only work with VueJs
 markdown in browser editor: https://stackedit.io/app
+https://ionicframework.com/docs/updating/7-0
 
 thanks for them and plus the people who work for the freeware.
